@@ -4,10 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-README.md
 # testing
 /coverage 
-
+/COPY
 # production
 /build
 

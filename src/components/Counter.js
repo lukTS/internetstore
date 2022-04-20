@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 Counter.propTypes = {
   min: PropTypes.number,
@@ -8,6 +9,7 @@ Counter.propTypes = {
 }
 
 function Counter({min, max, changeCntP, curent}) {
+  let [newCurent, setNewCurent] = useState(curent)
 
   function fillInput(e) {
     let element = parseInt(e.target.value)
@@ -16,7 +18,9 @@ function Counter({min, max, changeCntP, curent}) {
   }
   
   function checkMinMax (number) {
-    changeCntP(Math.max(min, Math.min(max, number)))
+    let n = Math.max(min, Math.min(max, number))
+    changeCntP(n)
+    setNewCurent(n)
   }
 
   function decriment() {
@@ -27,14 +31,10 @@ function Counter({min, max, changeCntP, curent}) {
     checkMinMax(curent+1);
   }
 
-  function handelBlur() {
-    checkMinMax(curent)
-  }
-  
   return (
     <>
       <button onClick={decriment}>decriment</button>
-      <input onBlur={handelBlur} value={curent} onChange={fillInput} />
+      <input onBlur={fillInput} value={newCurent} onChange={(e)=>setNewCurent(e.target.value)} />
       <button onClick={incriment}>incriment</button>
     </>
   );

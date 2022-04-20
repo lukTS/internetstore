@@ -7,29 +7,29 @@ const prodactsFromServer = [
     id: 1,
     title: 'Iphon 200',
     price: 2000,
-    rest: 10,
-    cnt: 1
+    rest: 50,
+    cnt: 10
   },
   {
     id: 2,
     title: 'Huaway',
     price: 2000,
-    rest: 10,
-    cnt: 1
+    rest: 50,
+    cnt: 10
   },
   {
     id: 3,
     title: 'LG',
     price: 3400,
     rest: 40,
-    cnt: 1
+    cnt: 10
   },
   {
     id: 4,
     title: 'Samsung',
     price: 4000,
-    rest: 10,
-    cnt: 1
+    rest: 50,
+    cnt: 10
   },
 ]
 function App() {
@@ -53,7 +53,7 @@ function App() {
       <tr key={pr.id}>
         <td>{pr.title}</td>
         <td>{pr.price}</td>
-        <td><Counter min={1} max={pr.rest} changeCntP={val => changeCnt(pr.id, val)} curent={pr.cnt} /></td>
+        <td><Counter min={10} max={pr.rest} changeCntP={val => changeCnt(pr.id, val)} curent={pr.cnt} /></td>
         <td>{pr.price*pr.cnt}</td>
         <td><button onClick={()=>delProduct(pr.id)}>Delate</button></td>
       </tr>
